@@ -1,0 +1,27 @@
+<template name="menu">
+    <h3>Menu</h3>
+    <ul class="nav nav-pills nav-stacked">
+        <li><a href="{{pathFor route='home'}}">Accueil</a></li>
+        <li><a href="{{pathFor route='article.list'}}">Liste des articles</a></li>
+        {{#if currentUser}}
+        <li><a href="{{pathFor route='article.create'}}">Créer un article</a></li>
+        {{#if isAdmin currentUser}}
+        <li><a href="{{pathFor route='categories.create'}}">Créer une catégorie</a></li>
+        <li><a href="{{pathFor route='categories.list'}}">Liste des catégories</a></li>
+        {{/if}}
+        {{/if}}
+    </ul>
+    <h3>Mon compte</h3>
+    <ul class="nav nav-pills nav-stacked">
+        {{#if currentUser}}
+        <h4>{{currentUser.username}}</h4>
+        {{#with currentUser}}
+        <p>{{#each roles}}{{#if isEqual this 'admin'}}{{this}}|{{/if}}{{/each}}</p>
+        {{/with}}
+        <li><a class="logout">Se déconnecter</a></li>
+        {{else}}
+        <li><a href="{{pathFor route='user.login'}}">Login</a></li>
+        <li><a href="{{pathFor route='user.register'}}">S'enregistrer</a></li>
+        {{/if}}
+    </ul>
+</template>

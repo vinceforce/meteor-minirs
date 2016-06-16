@@ -1,0 +1,13 @@
+<template name="showArticle">
+    {{#with article}}
+    {{#if isCurrentUser author}}
+    <p><a href="{{pathFor route='article.delete'}}">X</a>|<a href="{{pathFor route='article.edit'}}">edit</a></p>
+    {{/if}}
+    <h2>{{ title }}</h2>
+    <p>{{ content }}</p>
+	<em><a href="{{pathFor route='article.byAuthor' _author=author}}">{{ author }}</a> - </em>
+  <em><a href="{{pathFor route='article.byCategory' _category=categories}}">{{ categories }}</a> - </em>
+    {{/with}}
+    <p>Auteur: {{ authorUserName }}</p>
+    <p>Catégorie: {{ category }}</p>
+</template>

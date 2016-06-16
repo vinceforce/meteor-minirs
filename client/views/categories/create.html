@@ -1,0 +1,10 @@
+<template name="createCategory">
+    <h1 class="text-center" >Enregistrement</h1>
+      {{#autoForm collection="Categories" id="insertCategory"}}
+        <fieldset>
+            <legend>Informations obligatoires</legend>
+            {{> afQuickField name="name"}}
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Valider</button>
+    {{/autoForm}}
+</template>

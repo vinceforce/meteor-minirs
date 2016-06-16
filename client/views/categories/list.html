@@ -1,0 +1,8 @@
+<template name="listCategories">
+    <h3>Liste des categories</h3>
+    <ul>
+	{{#each categories}}
+		<li><a href="{{pathFor route='categories.delete'}}">X</a>|<a href="{{pathFor route='categories.edit'}}">edit</a>|<b>{{ name }}</b></li>
+	{{/each}}
+	</ul>
+</template>

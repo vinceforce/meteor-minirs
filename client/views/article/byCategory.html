@@ -1,0 +1,17 @@
+<template name="articleByCategory">
+    <h3>Liste des articles de la catégorie {{ categoryName }}</h3>
+    <ul>
+	{{#each articles}}
+  <p>
+    {{#if isCurrentUser author}}
+    <a href="{{pathFor route='article.delete'}}">X</a>|<a href="{{pathFor route='article.edit'}}">edit</a>
+    {{/if}}
+  |<a href="{{pathFor route='article.show'}}">show</a>
+</p>
+  <h2>{{ title }}</h2>
+  <p>{{ content }}</p>
+<em>Auteur : {{ author }} - </em>
+  <p>Catégorie: {{ categories }}</p>
+	{{/each}}
+	</ul>
+</template>

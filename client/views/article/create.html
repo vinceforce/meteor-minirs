@@ -1,0 +1,15 @@
+<template name="createArticle">
+    <h1 class="text-center" >Enregistrement</h1>
+    {{#autoForm collection="Articles" id="insertArticle"}}
+        <fieldset>
+            <legend>Informations obligatoires</legend>
+            {{> afQuickField name="title"}}
+            {{> afQuickField name="content"}}
+        </fieldset>
+        <fieldset>
+            <legend>Informations facultatives</legend>
+            {{> afQuickField name="categories"}}
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Valider</button>
+    {{/autoForm}}
+</template>
